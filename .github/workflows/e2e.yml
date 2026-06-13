@@ -1,0 +1,24 @@
+name: E2E Tests
+on:
+  push:
+    branches: [main]
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env: { POSTGRES_DB: teos_test, POSTGRES_USER: test, POSTGRES_PASSWORD: test }
+        ports: [5432:5432]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with: { python-version: '3.12' }
+      - run: pip install -r requirements.txt
+      - run: |
+          python scripts/seed_data.py
+          uvicorn src.api.rest:app &
+          sleep 5
+          curl http://localhost:8000/docs
+          # اجرای تست‌های API با pytest
+          pytest tests/test_api.py

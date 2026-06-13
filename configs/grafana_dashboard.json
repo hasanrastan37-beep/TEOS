@@ -1,0 +1,17 @@
+{
+  "dashboard": {
+    "title": "TEOS Overview",
+    "panels": [
+      {
+        "title": "API Requests per minute",
+        "type": "graph",
+        "targets": [{"expr": "rate(http_requests_total[1m])"}]
+      },
+      {
+        "title": "Active Users (last 24h)",
+        "type": "stat",
+        "targets": [{"expr": "active_users_24h"}]
+      }
+    ]
+  }
+}

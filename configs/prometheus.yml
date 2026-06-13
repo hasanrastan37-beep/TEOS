@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: 'teos-api'
+    static_configs:
+      - targets: ['teos-api:8000']
+  - job_name: 'teos-bot'
+    static_configs:
+      - targets: ['teos-bot:9090']  # اگر اکسپورتر داشته باشد

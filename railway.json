@@ -1,0 +1,36 @@
+{
+  "services": {
+    "teos-api": {
+      "build": {
+        "dockerfilePath": "Dockerfile.api"
+      },
+      "envs": {
+        "SERVICE": "api"
+      },
+      "port": 8000
+    },
+    "teos-bot": {
+      "build": {
+        "dockerfilePath": "Dockerfile.bot"
+      },
+      "envs": {
+        "SERVICE": "bot"
+      }
+    },
+    "teos-web": {
+      "build": {
+        "dockerfilePath": "./src/interfaces/web/next_app/Dockerfile"
+      },
+      "envs": {
+        "NEXT_PUBLIC_API_URL": "https://your-api.railway.app"
+      },
+      "port": 3000
+    },
+    "postgres": {
+      "image": "postgres:16-alpine"
+    },
+    "redis": {
+      "image": "redis:7-alpine"
+    }
+  }
+}

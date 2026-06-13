@@ -1,0 +1,4 @@
+apiVersion: v2
+name: teos
+description: Telegram Enterprise Operating System
+version: 1.0.0

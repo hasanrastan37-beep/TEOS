@@ -1,0 +1,13 @@
+image:
+  repository: teos
+  tag: latest
+services:
+  api:
+    replicas: 2
+    port: 8000
+  bot:
+    replicas: 1
+postgresql:
+  enabled: true
+redis:
+  enabled: true

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teos-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: teos-api
+  template:
+    metadata:
+      labels:
+        app: teos-api
+    spec:
+      containers:
+      - name: api
+        image: teos-api:latest
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: teos-config
+        - secretRef:
+            name: teos-secrets
+        volumeMounts:
+        - name: uploads
+          mountPath: /app/uploads
+      volumes:
+      - name: uploads
+        persistentVolumeClaim:
+          claimName: teos-uploads-pvc
