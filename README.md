@@ -19,3 +19,4 @@ TEOS یک پلتفرم سازمانی هوشمند، چندمستاجره، AI�
 2. اجرا با Docker Compose:
    ```bash
    docker compose up -d
+ 
