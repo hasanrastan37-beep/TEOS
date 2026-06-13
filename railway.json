@@ -10,12 +10,6 @@
       "build": {
         "dockerfilePath": "Dockerfile.bot"
       }
-    },
-    "teos-web": {
-      "build": {
-        "dockerfilePath": "src/interfaces/web/next_app/Dockerfile"
-      },
-      "port": 3000
     }
   }
 }
